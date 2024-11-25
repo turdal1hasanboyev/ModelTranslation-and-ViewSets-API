@@ -1,12 +1,17 @@
 from pathlib import Path
+# for translation gettext lazy
+from django.utils.translation import gettext_lazy as _
+import os # for model translation
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-h$#%fm_y784alt5)7q2tsn-8e)1ibm96fr8zh!lp68j$tohq=!'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
+
+AUTH_USER_MODEL = 'app.User'
 
 INSTALLED_APPS = [
     'modeltranslation', # model translation
@@ -18,8 +23,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # build-in apps
     'rest_framework',
 
+    # local apps
     'app',
 ]
 
@@ -34,10 +41,10 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
 
     'django.middleware.locale.LocaleMiddleware', # model translation
 
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -49,7 +56,8 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        # 'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,13 +94,52 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'uz'
 
 TIME_ZONE = 'Asia/Tashkent'
 
-USE_I18N = True
+USE_I18N = True # language
 
 USE_TZ = True
+
+# language
+
+#defaul language
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
+
+# languages tillar
+LANGUAGES = (
+    ('uz', _('Uzbek')),
+    ('en', _('English')),
+    ('ru', _('Russian')),
+)
+
+# local path ochish
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+    # BASE_DIR / 'locale',
+)
+
+#tarjima qilinadigan tillar
+MODELTRANSLATION_LANGUAGES = ('uz', 'en', 'ru')
+
+# tillar va kodi default holatda qaysi turishi
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'uz', },  # Uzbek
+        {'code': 'ru', },  # Russian
+        {'code': 'en', },  # English
+    ),
+    'default': {
+        'fallbacks': ['uz'],
+        'hide_untranslated': False,
+    }
+}
+
+# translation fayllar
+MODELTRANSLATION_TRANSLATION_FILES = (
+    'app.translations',
+)
 
 STATIC_URL = '/static/'
 

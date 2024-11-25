@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-25 16:40+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\app\models.py:14
+msgid "Name"
+msgstr "Nomi"
+
+#: .\app\models.py:15
+msgid "sub_title"
+msgstr "Ikkinchi nomi"
+
+#: .\app\models.py:16
+msgid "author"
+msgstr "muallif"
+
+#: .\app\models.py:17
+msgid "publication_date"
+msgstr "nashr_sanasi"
+
+#: .\app\models.py:18
+msgid "description"
+msgstr "Haqida"
+
+#: .\config\settings.py:112
+msgid "Uzbek"
+msgstr "O'zbekcha"
+
+#: .\config\settings.py:113
+msgid "English"
+msgstr "Inglizcha"
+
+#: .\config\settings.py:114
+msgid "Russian"
+msgstr "Ruscha"
+
+#: .\templates\404.html:74
+msgid "Page Not Found"
+msgstr "Sahifa topilmadi"
+
+#: .\templates\404.html:76
+msgid "Sorry, the page you are looking for does not exist or has been moved."
+msgstr "Kechirasiz, siz qidirayotgan sahifa mavjud emas yoki koʻchirilgan."
